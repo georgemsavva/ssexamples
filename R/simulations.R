@@ -2,11 +2,11 @@
 
 ### Functions to generate bread experiments
 
-simTestParticipants <- function(n, treatmenteffect=50, withinpatientsd=40,betweenpatientsd=20){
+simTestParticipants <- function(n, treatmenteffect=50, withinpatientsd=40,betweenpatientsd=40){
     rnorm(n, treatmenteffect + 500 , sqrt(betweenpatientsd^2 + withinpatientsd^2) )
   }
 
-simControlParticipants <- function(n, treatmenteffect=0, withinpatientsd=40,betweenpatientsd=20){
+simControlParticipants <- function(n, treatmenteffect=0, withinpatientsd=40,betweenpatientsd=40){
     simTestParticipants(n, treatmenteffect=0, withinpatientsd=withinpatientsd, betweenpatientsd=betweenpatientsd)
   }
 
