@@ -12,7 +12,7 @@ simControlParticipants <- function(n, treatmenteffect=0, withinpatientsd=40,betw
 
 ### Generate paired bread experiment
 
-simPairedBreadExperiment <- function(npairs, treatmenteffect=0, withinpatientsd=20,betweenpatientsd=20){
+simPairedBreadExperiment <- function(npairs, treatmenteffect=50, withinpatientsd=40,betweenpatientsd=40){
   patientmeans <- rnorm(npairs, mean=500, betweenpatientsd)
   data.frame(patid = 1:npairs,test=rnorm(npairs,patientmeans+treatmenteffect,withinpatientsd),
              control=rnorm(npairs,patientmeans,withinpatientsd))
@@ -20,7 +20,7 @@ simPairedBreadExperiment <- function(npairs, treatmenteffect=0, withinpatientsd=
 
 ### Generate unpaired bread experiment
 
-simUnpairedBreadExperiment <- function(npairs, treatmenteffect=0, withinpatientsd=20,betweenpatientsd=20){
+simUnpairedBreadExperiment <- function(npairs, treatmenteffect=50, withinpatientsd=40,betweenpatientsd=40){
   data.frame(treatment=rep(c("C","T"),each=npairs),iAUC=c(simTestParticipants(npairs,treatmenteffect),
              simControlParticipants(npairs)))
 
